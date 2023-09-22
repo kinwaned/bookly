@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
           color: Colors.white,
         ),
-        child: Center(
+        child: const Center(
           child:
           Icon(Icons.arrow_forward, color: Colors.black,),
           // Text(
