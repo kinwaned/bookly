@@ -21,14 +21,6 @@ class MyButton extends StatelessWidget {
         child: const Center(
           child:
           Icon(Icons.arrow_forward, color: Colors.black,),
-          // Text(
-          //   text,
-          //   style: const TextStyle(
-          //     color: Colors.black,
-          //     fontSize: 16,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
         ),
       ),
     );
