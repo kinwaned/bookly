@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'custom_book_details_app_bar.dart';
+import 'custom_book_cart_app_bar.dart';
 
-class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+class BookCartBody extends StatelessWidget {
+  const BookCartBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +10,9 @@ class BookDetailsViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          CustomBookDetailsAppBar(),
+          CustomBookCartAppBar(),
         ],
       ),
     );
   }
 }
-
