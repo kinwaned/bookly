@@ -12,7 +12,10 @@ class AlsoLikeListView extends StatelessWidget {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const CustomBookImage();
+            return  Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: CustomBookImage(borderRadius: BorderRadius.circular(10),),
+            );
           }),
     );
   }

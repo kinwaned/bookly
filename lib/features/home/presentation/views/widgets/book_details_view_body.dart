@@ -20,13 +20,14 @@ class BookDetailsViewBody extends StatelessWidget {
           child: CustomBookDetailsAppBar(),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * .25),
-          child: const CustomBookImage(),
+          padding: EdgeInsets.symmetric(horizontal: width * .27),
+          child:  CustomBookImage(borderRadius: BorderRadius.circular(20),),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
+              const SizedBox(height: 16),
               const Text(
                 'Harry Potter And the Goblet of Fire',
                 style: Styles.textStyle26,
@@ -43,7 +44,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const BookRating(),
+              const BookRating(mainAxisAlignment: MainAxisAlignment.center,),
               const SizedBox(height: 6),
               Container(),
               const SizedBox(height: 45),
