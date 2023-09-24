@@ -1,20 +1,20 @@
 import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem({super.key});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.7/4,
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+        decoration: const BoxDecoration(
+          // borderRadius: BorderRadius.circular(30),
           // color: Colors.red,
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(AssetsData.testBook1),
+            image: AssetImage(AssetsData.testBook),
           ),
         ),
       ),
