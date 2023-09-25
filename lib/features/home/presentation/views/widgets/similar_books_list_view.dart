@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'custom_book_image.dart';
 
-class AlsoLikeListView extends StatelessWidget {
-  const AlsoLikeListView({super.key});
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
