@@ -1,9 +1,8 @@
-import 'package:bookly/features/home/presentation/views/widgets/also_like_list_view.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
-import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
+import 'books_action.dart';
 import 'custom_book_details_app_bar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -20,8 +19,10 @@ class BookDetailsViewBody extends StatelessWidget {
           child: CustomBookDetailsAppBar(),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * .27),
-          child:  CustomBookImage(borderRadius: BorderRadius.circular(20),),
+          padding: EdgeInsets.symmetric(horizontal: width * .3),
+          child: CustomBookImage(
+            borderRadius: BorderRadius.circular(20),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -44,72 +45,34 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const BookRating(mainAxisAlignment: MainAxisAlignment.center,),
-              const SizedBox(height: 6),
-              Container(),
-              const SizedBox(height: 45),
-              Row(
+              const BookRating(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 150,
-                    height: 45,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          bottomLeft: Radius.circular(20)),
-                    ),
-                    child: Center(
-                        child: Text(
-                      '19.99€',
-                      style: Styles.textStyle20.copyWith(
-                          fontFamily: kMontserrat,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    )),
-                  ),
-                  Container(
-                    width: 150,
-                    height: 45,
-                    decoration: const BoxDecoration(
-                      color: Colors.deepOrangeAccent,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
-                    ),
-                    child: Center(
-                        child: Text(
-                      'Free Preview',
-                      style: Styles.textStyle14.copyWith(
-                          fontFamily: kMontserrat,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
-                    )),
-                  ),
-                ],
               ),
-              const SizedBox(
-                height: 45,
-              ),
+              const SizedBox(height: 37),
+              const BooksAction(),
             ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: Text(
-            'You may also like',
-            style: Styles.textStyle18,
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: AlsoLikeListView(),
-        ),
+
       ],
     );
   }
 }
+
+
+
+
+// const Padding(
+// padding: EdgeInsets.only(left: 20),
+// child: Text(
+// 'You may also like',
+// style: Styles.textStyle18,
+// ),
+// ),
+// const SizedBox(
+// height: 20,
+// ),
+// const Padding(
+// padding: EdgeInsets.only(left: 20),
+// child: AlsoLikeListView(),
+// ),
