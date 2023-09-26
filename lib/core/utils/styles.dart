@@ -13,6 +13,4 @@ abstract class Styles {
   static const textStyle26 =
   TextStyle(fontSize: 26, fontWeight: FontWeight.normal, fontFamily: kGtSectra);
 
-
-
 }
