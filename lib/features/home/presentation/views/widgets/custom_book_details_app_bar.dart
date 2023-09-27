@@ -30,7 +30,11 @@ class CustomBookDetailsAppBar extends StatelessWidget {
           IconButton(
               onPressed: () {
                 GoRouter.of(context).push(AppRouter.kBookCart);
-              }, icon: const Icon(Icons.shopping_cart_outlined, size: 31,)),
+              },
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+                size: 31,
+              )),
         ],
       ),
     );

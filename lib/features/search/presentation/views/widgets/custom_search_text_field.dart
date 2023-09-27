@@ -22,12 +22,23 @@ class CustomSearchTextField extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextField(
-                  style: Styles.textStyle16.copyWith(color: Colors.black38, fontWeight: FontWeight.bold),
+                  style: Styles.textStyle16.copyWith(
+                      color: Colors.black38, fontWeight: FontWeight.bold),
                   decoration: InputDecoration(
-                    prefixIcon: IconButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeView()));
-                    },icon: const Icon(Icons.arrow_back, color: Colors.black,),),
-                    hintStyle: Styles.textStyle16.copyWith(color: Colors.black38, fontWeight: FontWeight.bold),
+                    prefixIcon: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeView()));
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                      ),
+                    ),
+                    hintStyle: Styles.textStyle16.copyWith(
+                        color: Colors.black38, fontWeight: FontWeight.bold),
                     hintText: 'Search',
                     border: InputBorder.none,
                   ),

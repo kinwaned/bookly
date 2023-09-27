@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  MyButton({Key? key,required this.onTap,required this.text}) : super(key: key);
+  MyButton({Key? key, required this.onTap, required this.text})
+      : super(key: key);
   String text;
   final void Function()? onTap;
 
@@ -19,8 +20,10 @@ class MyButton extends StatelessWidget {
           color: Colors.white,
         ),
         child: const Center(
-          child:
-          Icon(Icons.arrow_forward, color: Colors.black,),
+          child: Icon(
+            Icons.arrow_forward,
+            color: Colors.black,
+          ),
         ),
       ),
     );

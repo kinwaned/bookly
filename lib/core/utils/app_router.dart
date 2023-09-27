@@ -5,7 +5,7 @@ import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 
-abstract class AppRouter{
+abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kBookDetailsView = '/bookDetailsView';
   static const kBookCart = '/bookCart';

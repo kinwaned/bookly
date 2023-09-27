@@ -14,10 +14,8 @@ class SimilarBooksSection extends StatelessWidget {
       children: [
         Text(
           'You may also like',
-          style: Styles.textStyle16.copyWith(
-              fontFamily: kMontserrat,
-              fontWeight: FontWeight.bold
-          ),
+          style: Styles.textStyle16
+              .copyWith(fontFamily: kMontserrat, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 20,

@@ -12,7 +12,7 @@ class BestSellersListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
@@ -41,19 +41,32 @@ class BestSellersListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child:  Text(
+                    child: Text(
                       'Harry Potter And the Goblet of Fire',
                       style: Styles.textStyle20.copyWith(fontFamily: kGtSectra),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const SizedBox(height: 3,),
-                  Text('J.K Rowling', style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),),
-                  const SizedBox(height: 3,),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    'J.K Rowling',
+                    style: Styles.textStyle14
+                        .copyWith(color: const Color(0xff707070)),
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
                   Row(
                     children: [
-                      Text('19.99€', style: Styles.textStyle20.copyWith(fontFamily: kMontserrat, fontWeight: FontWeight.bold),),
+                      Text(
+                        '19.99€',
+                        style: Styles.textStyle20.copyWith(
+                            fontFamily: kMontserrat,
+                            fontWeight: FontWeight.bold),
+                      ),
                       const Spacer(),
                       const BookRating(),
                     ],

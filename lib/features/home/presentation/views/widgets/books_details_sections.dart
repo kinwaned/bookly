@@ -10,10 +10,7 @@ class BooksDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Padding(
@@ -34,8 +31,7 @@ class BooksDetailsSection extends StatelessWidget {
           child: Text(
             'J.K Rowling',
             style: Styles.textStyle18.copyWith(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w500),
+                fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             textAlign: TextAlign.center,
           ),
         ),
