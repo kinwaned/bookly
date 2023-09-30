@@ -10,13 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  BlocOverrides.runZoned(
-    () {
-      setupServiceLocator();
-      runApp(const BooklyApp());
-    },
-    blocObserver: MyBlocObserver(),
-  );
+  setupServiceLocator();
+  Bloc.observer = MyBlocObserver();
+  runApp(const BooklyApp());
 }
 
 class BooklyApp extends StatelessWidget {

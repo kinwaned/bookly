@@ -17,6 +17,6 @@ class NoImageBook extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }
