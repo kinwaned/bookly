@@ -1,10 +1,8 @@
-import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key, required this.borderRadius, required this.imgUrl});
+class NoImageBook extends StatelessWidget {
+  const NoImageBook({super.key, required this.borderRadius,});
   final BorderRadiusGeometry borderRadius;
-  final String imgUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -13,15 +11,12 @@ class CustomBookImage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: borderRadius,
           // color: Colors.red,
-          image:  DecorationImage(
-            fit: BoxFit.fill,
-            image: NetworkImage(imgUrl),
+          image:  const DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage('https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'),
           ),
         ),
       ),
-    );
+    );;
   }
 }
-
-
-

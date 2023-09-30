@@ -1,6 +1,7 @@
 import 'package:bookly/features/home/manager/cubits/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_circular_indicator.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_error_message.dart';
+import 'package:bookly/features/home/presentation/views/widgets/no_image_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,19 +18,25 @@ class FeaturedBooksListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .28,
             child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: state.books.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.books.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final book = state.books[index];
+                final thumbnailUrl = book.volumeInfo.imageLinks?.thumbnail;
+                if (thumbnailUrl != null) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: CustomBookImage(
                       borderRadius: BorderRadius.circular(20),
-                      imgUrl:
-                          state.books[index].volumeInfo.imageLinks!.thumbnail!,
+                      imgUrl: thumbnailUrl,
                     ),
                   );
-                }),
+                } else {
+                  return NoImageBook(borderRadius: BorderRadius.circular(20)); // Or another placeholder widget
+                }
+              },
+            ),
           );
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorMessage(errMessage: state.errMessage);
@@ -40,3 +47,4 @@ class FeaturedBooksListView extends StatelessWidget {
     );
   }
 }
+
