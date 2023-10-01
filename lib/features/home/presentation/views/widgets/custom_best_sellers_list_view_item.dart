@@ -1,13 +1,16 @@
 import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 
-class BestSellersListViewItem extends StatelessWidget {
-  const BestSellersListViewItem({super.key});
+class NewestBooksListViewItem extends StatelessWidget {
+  const NewestBooksListViewItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +22,9 @@ class BestSellersListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  // color: Colors.red,
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.testBook2),
-                  ),
-                ),
-              ),
-            ),
+            CustomBookImage(
+                borderRadius: BorderRadius.circular(16),
+                imgUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
             const SizedBox(
               width: 30,
             ),
@@ -42,7 +35,7 @@ class BestSellersListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'Harry Potter And the Goblet of Fire',
+                      bookModel.volumeInfo.title!,
                       style: Styles.textStyle20.copyWith(fontFamily: kGtSectra),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -52,7 +45,7 @@ class BestSellersListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    'J.K Rowling',
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14
                         .copyWith(color: const Color(0xff707070)),
                   ),
@@ -62,13 +55,16 @@ class BestSellersListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '19.99€',
+                        'Free',
                         style: Styles.textStyle20.copyWith(
                             fontFamily: kMontserrat,
                             fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo.averageRating?.toInt() ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount != null? 0: 0,
+                      ),
                     ],
                   ),
                 ],
