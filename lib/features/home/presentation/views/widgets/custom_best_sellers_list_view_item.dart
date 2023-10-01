@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_newest_book_image_.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
@@ -22,9 +22,10 @@ class NewestBooksListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            CustomBookImage(
-                borderRadius: BorderRadius.circular(16),
-                imgUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
+            CustomNewestBookImage(
+              borderRadius: BorderRadius.circular(10),
+              imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+            ),
             const SizedBox(
               width: 30,
             ),
@@ -62,8 +63,9 @@ class NewestBooksListViewItem extends StatelessWidget {
                       ),
                       const Spacer(),
                       BookRating(
-                        rating: bookModel.volumeInfo.averageRating?.toInt() ?? 0,
-                        count: bookModel.volumeInfo.ratingsCount != null? 0: 0,
+                        rating:
+                            bookModel.volumeInfo.averageRating?.toInt() ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],
                   ),

@@ -21,12 +21,13 @@ class FeaturedBooksListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: CustomBookImage(
-                    borderRadius: BorderRadius.circular(20),
-                    imgUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
-                  ),
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: CustomBookImage(
+                  borderRadius: BorderRadius.circular(20),
+                  imgUrl:
+                      state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
                 ),
+              ),
             ),
           );
         } else if (state is FeaturedBooksFailure) {
@@ -38,4 +39,3 @@ class FeaturedBooksListView extends StatelessWidget {
     );
   }
 }
-
