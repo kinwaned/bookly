@@ -37,7 +37,7 @@ class CustomBookImage extends StatelessWidget {
                       style: Styles.textStyle14.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
-                      ),
+                      ),textAlign:  TextAlign.center,
                     ),
                   ],
                 ),
@@ -52,7 +52,7 @@ class CustomBookImage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     image: DecorationImage(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       image: imageProvider,
                     ),
                   ),

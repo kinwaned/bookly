@@ -3,7 +3,9 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_circular_
 import 'package:bookly/features/home/presentation/views/widgets/custom_error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import 'custom_book_image.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -22,10 +24,15 @@ class FeaturedBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                child: CustomBookImage(
-                  borderRadius: BorderRadius.circular(20),
-                  imgUrl:
-                      state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+                child: GestureDetector(
+                  onTap: (){
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView,extra: state.books[index] );
+                  },
+                  child: CustomBookImage(
+                    borderRadius: BorderRadius.circular(20),
+                    imgUrl:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+                  ),
                 ),
               ),
             ),

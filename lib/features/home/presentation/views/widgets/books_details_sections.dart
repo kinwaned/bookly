@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/model/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -6,7 +7,9 @@ import 'books_action.dart';
 import 'custom_book_image.dart';
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
+  const BooksDetailsSection({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +20,13 @@ class BooksDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: width * .22),
           child: CustomBookImage(
             borderRadius: BorderRadius.circular(20),
-            imgUrl:
-                'https://m.media-amazon.com/images/M/MV5BMTc3NTUzNTI4MV5BMl5BanBnXkFtZTgwNjU0NjU5NzE@._V1_.jpg',
+            imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg',
           ),
         ),
         const SizedBox(height: 16),
-        const Text(
-          'Harry Potter And the Goblet of Fire',
+        Text(
+          bookModel.volumeInfo.title ?? '',
           style: Styles.textStyle26,
           textAlign: TextAlign.center,
         ),
@@ -31,18 +34,20 @@ class BooksDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'J.K Rowling',
+            bookModel.volumeInfo.authors?[0] ?? '',
             style: Styles.textStyle18.copyWith(
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(height: 16),
-         const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center, rating: 5, count: 250,
+         BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: bookModel.volumeInfo.averageRating?? 0.0,
+          count: bookModel.volumeInfo.ratingsCount ?? 0,
         ),
         const SizedBox(height: 37),
-        const BooksAction(),
+         BooksAction(bookModel: bookModel,),
       ],
     );
   }
