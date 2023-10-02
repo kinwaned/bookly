@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'custom_best_sellers_list_view_item.dart';
 import 'custom_circular_indicator.dart';
 
-class NewestBooksListView extends StatelessWidget {
-  const NewestBooksListView({super.key});
+class BestSellerListView extends StatelessWidget {
+  const BestSellerListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +18,21 @@ class NewestBooksListView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemCount: state.books.length,
-            itemBuilder: (context, index) =>
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: NewestBooksListViewItem(bookModel: state.books[index],),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: NewestBooksListViewItem(
+                  bookModel: state.books[index],
                 ),
+              );
+            },
           );
         } else if (state is NewestBooksFailure) {
           return CustomErrorMessage(errMessage: state.errMessage);
         } else {
           return const CustomCircularIndicator();
         }
-      }
+      },
     );
   }
 }
-
-

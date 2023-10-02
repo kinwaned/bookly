@@ -5,7 +5,7 @@ import 'best_list_view.dart';
 import 'featured_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +17,18 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CustomAppBar(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: FeaturedBooksListView(),
-              ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                  ),
+                  child: CustomAppBar()),
+              FeaturedBooksListView(),
               SizedBox(
                 height: 50,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Newest Books',
+                  'Newset Books',
                   style: Styles.textStyle18,
                 ),
               ),
@@ -42,8 +40,8 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverFillRemaining(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: NewestBooksListView(),
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: BestSellerListView(),
           ),
         ),
       ],
